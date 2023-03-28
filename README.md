@@ -1,4 +1,4 @@
-# Cucumber Java Browserstack 
+# gc-platform-automation-testing 
 ![BrowserStack Logo](https://d98b8t1nnulk5.cloudfront.net/production/images/layout/logo-header.png?1469004780)
 
 [Cucumber JVM](https://cucumber.io/docs/reference/jvm) Integration with BrowserStack.

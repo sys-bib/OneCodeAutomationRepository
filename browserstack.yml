@@ -13,7 +13,7 @@ accessKey: igB2fsXGN3MuNYApVzqC
 # Set 'projectName' to the name of your project. Example, Marketing Website
 projectName: GC Platform Automation Testing 
 # Set `buildName` as the name of the job / testsuite being run
-buildName: browserstack build 
+buildName: gc-general-automation-testing build 
 # `buildIdentifier` is a unique id to differentiate every execution that gets appended to
 # buildName. Choose your buildIdentifier format from the available expressions:
 # ${BUILD_NUMBER} (Default): Generates an incremental counter with every execution
@@ -34,10 +34,14 @@ platforms:
     osVersion: 11
     browserName: Chrome
     browserVersion: 103.0
-  - os: OS X
-    osVersion: Big Sur
-    browserName: Safari
-    browserVersion: 14.1  
+  - deviceName: Samsung Galaxy S23 Ultra
+    osVersion: 13.0
+    browserName: samsung
+    deviceOrientation: portrait
+  - deviceName: iPhone 14 Pro
+    osVersion: 16
+    browserName: safari
+    deviceOrientation: portrait
 # =======================
 # Parallels per Platform
 # =======================

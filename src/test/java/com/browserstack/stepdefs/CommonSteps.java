@@ -39,7 +39,6 @@ public class CommonSteps {
     public void I_am_on_the_website(String url) throws Throwable {
         driver.get(url);
         Thread.sleep(2000);
-        commonPage.getConsoleErrorLog();
     }
 
     @When("^I click on 'Logo' button")

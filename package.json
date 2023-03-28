@@ -1,8 +1,11 @@
 {
   "scripts": {
-    "test": "percy exec -v -- mvn test -Dtest=\"PmiScienceRunWebDriverTest\""
+    "test": "percy exec -v -- mvn test -P PmiScienceTests"
   },
   "dependencies": {
     "percy": "^5.0.0"
+  },
+  "devDependencies": {
+    "@percy/cli": "^1.21.0"
   }
 }
