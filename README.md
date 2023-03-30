@@ -1,6 +1,12 @@
 
 # gc-platform-automation-testing
 
+## Software Requirement
+- Maven 3.8.6
+- Java 11.x.x
+- NodeJS 14.xx or newer
+- Eclipse or Visual Studio Code with java toolkit Java in Visual Studio Code
+
 ## Using Maven
 
 ### Run sample build
