@@ -7,6 +7,7 @@ import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -43,6 +44,20 @@ public class CommonSteps {
 		Thread.sleep(2000);
 	}
 
+	//HOW DO I TURN THIS METHOD REUSABLE FOR DIFFERENT CASES?
+	//SHOULD IT HAVE PARAMETERS?
+	@Then("^I verify the existence of the '(.+)'$")
+	public void verify_the_existence_of(String element) throws Throwable {
+		if(element.contains("logo")) {
+			Boolean isLogoDisplayed = commonPage.isLogoExists();
+			Assert.assertTrue(isLogoDisplayed);
+		}
+		if(element.contains("banner")) {
+			Boolean isBannerDisplayed = commonPage.isBannerExists();
+			Assert.assertTrue(isBannerDisplayed);
+		}
+	}
+
 	@Then("^I click on navigation button '(.+)'$")
 	public void I_click_on_navigation_button(String nav_name) throws Throwable {
 		commonPage.selectMenuNavigation(nav_name);
@@ -64,7 +79,39 @@ public class CommonSteps {
 	}
 
 	@Then("^Capture percy with name '(.+)'$")
-	public void capture_percy_with_name(String capture_title) {
+	public void capture_percy_with_name(String capture_title) throws Exception {
 		percy.snapshot(capture_title);
 	}
+	
+	@Then("^I click on cookies button '(.+)'$")
+	public void clickOnCookiesButton(String cookies_button) throws Exception  {
+		commonPage.cookiesButton(cookies_button);
+		Thread.sleep(2000);
+	}
+
+	@When("I fill in {string} with {string}")
+	public void fillFormField(String fieldName, String fieldValue) throws Exception {
+		commonPage.ContactUsFormFill(fieldName, fieldValue);
+		Thread.sleep(1000);
+	}
+
+	@Then("the {string} field should contain {string}")
+	public void checkFormField(String fieldName, String expectedValue) throws Exception {
+		commonPage.ContactUsFormCheck(fieldName, expectedValue);
+		Thread.sleep(1000);
+	}
+	
+	public CommonPageObject getCommonPage() {
+		return commonPage;
+	}
+
+	public void setCommonPage(CommonPageObject commonPage) {
+		this.commonPage = commonPage;
+	}
+
+	public void clickButton(String button) {
+		commonPage.clickContactUsButton(button);
+		
+	}
+
 }
