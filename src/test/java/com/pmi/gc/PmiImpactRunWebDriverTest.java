@@ -1,9 +1,8 @@
 package com.pmi.gc;
-
 import io.cucumber.testng.*;
 
 @CucumberOptions(
-        glue = "com.browserstack.stepdefs",
+        glue = "com.pmi.gc.stepdefs",
         features = "src/test/resources/features/pmi-impact.com",
         plugin = {
                 "pretty",

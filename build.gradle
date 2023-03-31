@@ -14,9 +14,9 @@ dependencies {
     compileOnly 'com.browserstack:browserstack-java-sdk:latest.release'
 }
 
-group = 'com.browserstack'
+group = 'com.pmi.gc'
 version = '1.0-SNAPSHOT'
-description = 'cucumber-java-browserstack'
+description = 'GC Platform Automation Testing'
 sourceCompatibility = '1.8'
 targetCompatibility = '1.8'
 
@@ -30,9 +30,9 @@ tasks.withType(Test) {
     systemProperties = System.properties
 }
 
-task sampleTest(type: Test) {
+task testPmiimpact(type: Test) {
     systemProperty "cucumber.publish.quiet", "true"
-    systemProperty "cucumber.features", "src/test/resources/features/test"
+    systemProperty "cucumber.features", "src/test/resources/features/pmi-impact.com"
     systemProperties System.getProperties()
     useTestNG() {
         dependsOn clean
@@ -43,9 +43,9 @@ task sampleTest(type: Test) {
     scanForTestClasses = false
 }
 
-task sampleLocalTest(type: Test) {
+task testPmiScience(type: Test) {
     systemProperty "cucumber.publish.quiet", "true"
-    systemProperty "cucumber.features", "src/test/resources/features/localtest"
+    systemProperty "cucumber.features", "src/test/resources/features/pmiscience.com"
     systemProperties System.getProperties()
     useTestNG() {
         dependsOn clean
