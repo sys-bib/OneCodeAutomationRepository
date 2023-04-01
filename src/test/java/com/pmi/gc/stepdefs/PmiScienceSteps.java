@@ -3,34 +3,50 @@ package com.pmi.gc.stepdefs;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
 import com.pmi.gc.pageobjects.CommonPageObject;
 import com.pmi.gc.utilities.TestContext;
 
 public class PmiScienceSteps {
 	TestContext testContext;
 	private CommonPageObject commonPage;
+	private WebDriver webDriver;
 
 	public PmiScienceSteps(TestContext context) {
 		testContext = context;
 		commonPage = new CommonPageObject(testContext.webDriver);
+		webDriver = testContext.webDriver;
 	}
 
-	@Then("I click on {string} button in section Get in Touch")
-	public void i_click_on_button_in_section(String button_text) throws Throwable {
-		commonPage.clickContactUsButton();
-		Thread.sleep(2000);
+	public void scienceSearchFunction(String search_text) {
+		By searchIconPath = By.xpath("(//div[@class='search-icon icon-size__default'])[1]");
+		ExpectedConditions.visibilityOfElementLocated(searchIconPath);
+		new WebDriverWait(webDriver, Duration.ofSeconds(3))
+				.until(ExpectedConditions.elementToBeClickable(searchIconPath)).click();
+		webDriver.findElement(By.xpath("(//input[@class='cmp-search__input'])[1]")).sendKeys(search_text);
+		new WebDriverWait(webDriver, Duration.ofSeconds(3))
+				.until(ExpectedConditions.elementToBeClickable(searchIconPath)).click();
 	}
 
-	@And("I fill in {string} with {string}")
-	public void i_fill_in_with(String fieldName, String fieldValue) throws Throwable {
-		commonPage.ContactUsFormFill(fieldName, fieldValue);
-		Thread.sleep(1000);
+	public int scienceSearchGetResultCount() {
+		String searchResult = webDriver.findElement(By.className("cmp-pmi-search-tabs__filter-results-value"))
+				.getText();
+		int resultCount = Integer.parseInt(searchResult.split(" ")[0]);
+		return resultCount;
 	}
 
-	@And("The {string} field should contain {string}")
-	public void the_field_should_contain(String fieldName, String expectedValue) throws Throwable {
-		// Add code to check that the given field contains the expected value
-		commonPage.ContactUsFormCheck(fieldName, expectedValue);
-		Thread.sleep(1000);
+	@Then("I search the text {string}")
+	public void I_search_the_text(String text) throws Throwable {
+		this.scienceSearchFunction(text);
+		Thread.sleep(3000);
+		int countResult = this.scienceSearchGetResultCount();
+		Assert.assertEquals(countResult > 0, true);
 	}
 }
