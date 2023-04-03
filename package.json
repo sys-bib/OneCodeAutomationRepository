@@ -1,8 +1,8 @@
 {
   "scripts": {
-    "testAll": "percy exec -v -- mvn test",
-    "testPmiScience": "percy exec -v -- mvn test -Dtest=\"PmiScienceRunWebDriverTest\"",
-    "testPmiImpact": "percy exec -v -- mvn test -Dtest=\"PmiImpactRunWebDriverTest\""
+    "test-default": "percy exec -v -- mvn test",
+    "test-pmiscience.com": "percy exec -v -- mvn test -Dtest=\"PmiScienceRunWebDriverTest\"",
+    "test-pmi-impact.com": "percy exec -v -- mvn test -Dtest=\"PmiImpactRunWebDriverTest\""
   },
   "dependencies": {
     "percy": "^5.0.0"
