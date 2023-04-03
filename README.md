@@ -6,6 +6,7 @@
 - Java 11.x.x
 - NodeJS 14.xx or newer
 - Eclipse or Visual Studio Code with java toolkit Java in Visual Studio Code
+- Percy CLI
 
 ## Using Maven
 
@@ -27,6 +28,7 @@ Understand how many parallel sessions you need by using our [Parallel Test Calcu
 - Run test command format
 	```sh-session
 	npm install
+	npm install --save-dev @percy/cli
 	npm run <package.json_script_name>
 	```
 - Run test  for project 
