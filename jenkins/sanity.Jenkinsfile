@@ -62,9 +62,14 @@ pipeline {
         stage('run testing and report') {
             steps {
                     browserstack(credentialsId: 'pmi-browserstack-creds') {
-                        powershell """
-                            npm run test-${project}
-                        """
+                        script {
+                        	if (params['Capture with Percy'])
+                        	{
+		                        powershell "npm run test-${project}"                        		
+                        	} else {
+	                            powershell "npm run test-${project}-no-percy"                  	      
+                        	}
+                        }
                     }
                      // Enable reporting in Jenkins
                     browserStackReportPublisher 'automate'                
