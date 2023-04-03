@@ -17,32 +17,19 @@ def configuration = [vaultUrl: 'https://vault.vault-prd.shared-services.eu-west-
                      vaultNamespace: 'igcpes-prd']
 
 pipeline {
-    agent any
+    agent {
+        label 'ec2-aem-dam'
+    }
     tools { 
         maven 'Maven 3.8.6'
-        nodejs "NodeJs14"
+        nodejs 'NodeJs16'
     }
     environment {
         browserstack_creds = 'pmi-browserstack-creds'
         project = "${_test_project_name}"
     }
     stages {
-        stage('Checkout')
-        {
-            steps {
-                checkout([$class: 'GitSCM',
-                        branches: [[name: "*/${env.REPO_BRANCH_NAME}"]],
-                        doGenerateSubmoduleConfigurations: false,
-                        extensions: [],
-                        submoduleCfg: [],
-                        userRemoteConfigs: [[
-                            credentialsId: '662605c7-335b-4d8f-86c7-4737c4cf6708',
-                            url: 'https://source.app.pconnect.biz/scm/igcpes/gc-platform-automation-testing.git'
-                ]]])
-            }
-        }
-
-        stage('Config setup') {
+        stage('prepare config and env') {
             steps {
                script {
                     withVault([configuration: configuration, vaultSecrets: secrets]) {
@@ -59,24 +46,23 @@ pipeline {
                                 break
                         }
                         env.PERCY_TOKEN = percy_token_selected
-                        sh """
-                            sed -i "s/<BROWSERSTACK_USERNAME>/${BROWSERSTACK_USERNAME}/" browserstack.yml
-                            sed -i "s/<BROWSERSTACK_ACCESS_KEY>/${BROWSERSTACK_ACCESS_KEY}/" browserstack.yml
+                        powershell """
+                            (Get-Content -path .\\browserstack.yml -Raw) -replace ('<BROWSERSTACK_USERNAME>','${BROWSERSTACK_USERNAME}') | Set-Content -Path .\\browserstack.yml
+                            (Get-Content -path .\\browserstack.yml -Raw) -replace ('<BROWSERSTACK_ACCESS_KEY>','${BROWSERSTACK_ACCESS_KEY}') | Set-Content -Path .\\browserstack.yml
                             
                             npm install
                             npm install --save-dev @percy/cli
     
-                            export PERCY_TOKEN=${percy_token_selected}
-                            echo \$PERCY_TOKEN
+                            \$Env:PERCY_TOKEN='${percy_token_selected}'
                         """
                     }
                 }
             }
         }
-        stage('Run Testing') {
+        stage('run testing and report') {
             steps {
                     browserstack(credentialsId: 'pmi-browserstack-creds') {
-                        sh """
+                        powershell """
                             npm run test-${project}
                         """
                     }
