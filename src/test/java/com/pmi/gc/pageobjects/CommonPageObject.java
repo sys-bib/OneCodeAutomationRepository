@@ -7,12 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-
 import io.percy.selenium.Percy;
-
-import org.openqa.selenium.logging.LogEntries;
-import org.openqa.selenium.logging.LogEntry;
-import org.openqa.selenium.logging.LogType;
 
 public class CommonPageObject {
 	private WebDriver webDriver;
@@ -28,13 +23,6 @@ public class CommonPageObject {
 		new WebDriverWait(webDriver, Duration.ofSeconds(2))
 				.until(ExpectedConditions.elementToBeClickable(By.xpath("(//a[@href='" + menu_name + "'])[1]")))
 				.click();
-	}
-
-	public void getConsoleErrorLog() {
-		LogEntries logEntries = webDriver.manage().logs().get(LogType.BROWSER);
-		for (LogEntry logEntry : logEntries) {
-			System.out.println(logEntry);
-		}
 	}
 
 	public boolean isElementExists(String elementType, String className) {

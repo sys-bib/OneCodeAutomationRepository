@@ -23,8 +23,6 @@ public class CommonSteps {
 	public void I_am_on_the_website(String url) throws Throwable {
 		commonPage.OpenUrl(url);
 		Thread.sleep(2000);
-		commonPage.getConsoleErrorLog();
-		Thread.sleep(2000);
 	}
 
 	@Then("I verify the existence of the element with tag {string} and class {string}")
