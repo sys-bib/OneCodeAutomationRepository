@@ -40,7 +40,7 @@ public class CommonSteps {
 		Thread.sleep(2000);
 	}
 
-	@Then("^Capture percy with name '(.+)'$")
+	@Then("Capture percy with name {string}")
 	public void capture_percy_with_name(String capture_title) throws Exception {
 		commonPage.PercyCapture(capture_title);
 	}
