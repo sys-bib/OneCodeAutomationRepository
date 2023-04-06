@@ -1,24 +1,24 @@
 def secrets = [
-  [path: 'static-secret/gc-platform-automation-testing', engineVersion: 2, secretValues: [
+  [path: 'static-secret/gc-sitefinity-automation-testing', engineVersion: 2, secretValues: [
     [envVar: 'password', vaultKey: 'password'],
     [envVar: 'BROWSERSTACK_ACCESS_KEY', vaultKey: 'BROWSERSTACK_ACCESS_KEY'],
     [envVar: 'BROWSERSTACK_USERNAME', vaultKey: 'BROWSERSTACK_USERNAME'],
     [envVar: 'PERCY_TOKEN_default', vaultKey: 'PERCY_TOKEN_default'],
     [envVar: 'PERCY_TOKEN_pmi_impact', vaultKey: 'PERCY_TOKEN_pmi-impact'],
-    [envVar: 'PERCY_TOKEN_pmiscience', vaultKey: 'PERCY_TOKEN_pmiscience'],
-    [envVar: 'PERCY_TOKEN_unsmokeyourworld.com', vaultKey: 'PERCY_TOKEN_unsmokeyourworld']
+    [envVar: 'PERCY_TOKEN_pmiscience', vaultKey: 'PERCY_TOKEN_pmiscience']
   ]]
  ]
 
+
 def configuration = [vaultUrl: 'https://vault.vault-prd.shared-services.eu-west-1.aws.pmicloud.biz:8200',
                      skipSslVerification: 'true',
-                     vaultCredentialId: 'vault-igcpes-prd',
+                     vaultCredentialId: 'vault-wfiws-prd',
                      engineVersion: 2,
-                     vaultNamespace: 'igcpes-prd']
+                     vaultNamespace: 'wfiws-prd']
 
 pipeline {
     agent {
-        label 'ec2-aem-dam'
+        label 'windows-2019-build-agent'
     }
     tools { 
         maven 'Maven 3.8.6'

@@ -16,7 +16,7 @@ dependencies {
 
 group = 'com.pmi.gc'
 version = '1.0-SNAPSHOT'
-description = 'GC Platform Automation Testing'
+description = 'GC Sitefinity Platform Automation Testing'
 sourceCompatibility = '1.8'
 targetCompatibility = '1.8'
 

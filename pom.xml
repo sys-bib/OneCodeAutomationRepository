@@ -6,9 +6,9 @@
     <artifactId>automation-testing</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <description>GC Platform Automation Testing</description>
+    <description>GC Sitefinity Platform Automation Testing</description>
 
-    <name>gc-platform-automation-testing</name>
+    <name>gc-sf-platform-automation-testing</name>
     <url>http://maven.apache.org</url>
 
     <properties>
