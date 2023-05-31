@@ -1,9 +1,10 @@
-package com.pmi.gc;
+package com.onecode.gc;
+
 import io.cucumber.testng.*;
 
 @CucumberOptions(
-        glue = "com.pmi.gc.stepdefs",
-        features = "src/test/resources/features/pmi-impact.com",
+        glue = "com.onecode.gc.stepdefs",
+        features = "src/test/resources/features/iris.app.pertamina.com",
         plugin = {
                 "pretty",
                 "html:reports/tests/cucumber/cucumber-pretty.html",
@@ -11,4 +12,5 @@ import io.cucumber.testng.*;
                 "json:reports/tests/cucumber/json/cucumberTestReport.json"
         }
 )
-public class PmiImpactRunWebDriverTest extends AbstractTestNGCucumberTests {}
+public class IrisRunWebDriverTest extends AbstractTestNGCucumberTests {}
+

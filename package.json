@@ -5,7 +5,9 @@
     "test-pmi-impact.com": "percy exec -v -- mvn test -Dtest=\"PmiImpactRunWebDriverTest\"",
     "test-default-no-percy": "mvn test",
     "test-pmiscience.com-no-percy": "mvn test -Dtest=\"PmiScienceRunWebDriverTest\"",
-    "test-pmi-impact.com-no-percy": "mvn test -Dtest=\"PmiImpactRunWebDriverTest\""
+    "test-pmi-impact.com-no-percy": "mvn test -Dtest=\"PmiImpactRunWebDriverTest\"",
+    "test-pwh.org-no-percy": "mvn test -Dtest=\"PwhRunWebDriverTest\"",
+    "test-iris.org-no-percy": "mvn test -Dtest=\"IrisRunWebDriverTest\""
   },
   "dependencies": {
     "percy": "^5.0.0"

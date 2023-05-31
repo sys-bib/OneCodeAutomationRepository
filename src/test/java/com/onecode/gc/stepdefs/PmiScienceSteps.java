@@ -1,6 +1,5 @@
-package com.pmi.gc.stepdefs;
+package com.onecode.gc.stepdefs;
 
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 
 import java.time.Duration;
@@ -11,8 +10,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-import com.pmi.gc.pageobjects.CommonPageObject;
-import com.pmi.gc.utilities.TestContext;
+import com.onecode.gc.pageobjects.CommonPageObject;
+import com.onecode.gc.utilities.TestContext;
 
 public class PmiScienceSteps {
 	TestContext testContext;
