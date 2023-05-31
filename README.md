@@ -14,7 +14,7 @@
 - Clone the repository
 - Replace YOUR_USERNAME and YOUR_ACCESS_KEY with your BrowserStack access credentials in browserstack.yml.
 - Install dependencies `mvn compile`
-- To run the test suite without percy, run `mvn test -Dtest="PmiScienceRunWebDriverTest"`
+- To run the test suite without percy, run `mvn test -Dtest="IrisRunWebDriverTest"`
 - To view Allure Reports, run `allure serve target/allure-results`
 Understand how many parallel sessions you need by using our [Parallel Test Calculator](https://www.browserstack.com/automate/parallel-calculator?ref=github)
 
