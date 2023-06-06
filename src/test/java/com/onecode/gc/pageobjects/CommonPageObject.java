@@ -103,20 +103,24 @@ public class CommonPageObject {
 	{
 		webDriver.findElement(By.xpath("//*[@id=\"kt_body\"]/div/div/div/div/div/div/form/div/button")).click();
 	}
+	//master ep
 	public void aksesmasterep()
 	{
 		webDriver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[1]/div[2]/div/div/div[1]/span")).click();
 		webDriver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[1]/div[2]/div/div/div[1]/div/div[1]/a")).click();
 	}
-	public void clickbtnnewep()
+	public void clickbtnnewmaster()
 	{
 		webDriver.findElement(By.id("btnCreate")).click();
+	}
+	public void clickbtnnewmasterkl()
+	{
+		webDriver.findElement(By.id("kt_drawer_example_dismiss_button")).click();
 	}
 	public void fillhsh(String fieldValue)
 	{
 		webDriver.findElement(By.cssSelector(".select2-selection")).click();
 		webDriver.findElement(By.cssSelector(".select2-search__field")).sendKeys(fieldValue);
-
 	}
 	public void enterhsh(){webDriver.findElement(By.cssSelector(".select2-search__field")).sendKeys(Keys.ENTER);}
 	public void fillep(String fieldValue)
@@ -132,8 +136,105 @@ public class CommonPageObject {
 		webDriver.findElement(By.id("CreateSubmit")).click();
 		webDriver.findElement(By.xpath("/html/body/div[3]/div/div[6]/button[1]")).click();
 	}
+	public void assertsuccesssumbit(){
+		Assert.assertEquals(webDriver.findElement(By.xpath("//*[@id=\"swal2-html-container\"]")).getText(),"Form has been successfully submitted!");
+	}
 
+	public void aksesmasterfungsi()
+	{
+		webDriver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[1]/div[2]/div/div/div[1]/span")).click();
+		webDriver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[1]/div[2]/div/div/div[1]/div/div[2]/a")).click();
+	}
+	public void filldep(String fieldValue)
+	{
+		webDriver.findElement(By.cssSelector(".select2-selection")).click();
+		webDriver.findElement(By.cssSelector(".select2-search__field")).sendKeys(fieldValue);
 
-
+	}
+	public void enterep(){webDriver.findElement(By.cssSelector(".select2-search__field")).sendKeys(Keys.ENTER);}
+	public void fillnamafungsi(String fieldValue)
+	{
+		webDriver.findElement(By.id("fungsiNameInput")).sendKeys(fieldValue);
+	}
+	public void filldeskripsi(String fieldValue)
+	{
+		webDriver.findElement(By.id("descriptionInput")).sendKeys(fieldValue);
+	}
+	public void aksesmasterpf()
+	{
+		webDriver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[1]/div[2]/div/div/div[1]/span")).click();
+		webDriver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[1]/div[2]/div/div/div[1]/div/div[3]/a")).click();
+	}
+	public void fillnf(String fieldValue)
+	{
+		webDriver.findElement(By.cssSelector(".select2-selection")).click();
+		webDriver.findElement(By.cssSelector(".select2-search__field")).sendKeys(fieldValue);
+	}
+	public void enternf(){webDriver.findElement(By.cssSelector(".select2-search__field")).sendKeys(Keys.ENTER);}
+	public void fillnamapic(String fieldValue)
+	{
+		webDriver.findElement(By.id("picNameInput")).sendKeys(fieldValue);
+	}
+	public void fillnotelp(String fieldValue)
+	{
+		webDriver.findElement(By.id("phoneInput")).sendKeys(fieldValue);
+	}
+	public void fillemail(String fieldValue)
+	{
+		webDriver.findElement(By.id("emailInput")).sendKeys(fieldValue);
+	}
+	public void aksesmasterinterest()
+	{
+		webDriver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[1]/div[2]/div/div/div[1]/span")).click();
+		webDriver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[1]/div[2]/div/div/div[1]/div/div[4]/a")).click();
+	}
+	public void fillnamainterest(String fieldValue)
+	{
+		webDriver.findElement(By.id("namaInput")).sendKeys(fieldValue);
+	}
+	public void fillorder(String fieldValue)
+	{
+		webDriver.findElement(By.id("orderInput")).sendKeys(fieldValue);
+	}
+	public void aksesmasterkl()
+	{
+		webDriver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[1]/div[2]/div/div/div[1]/span")).click();
+		webDriver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[1]/div[2]/div/div/div[1]/div/div[5]/a")).click();
+	}
+	public void fillnamakl(String fieldValue)
+	{
+		webDriver.findElement(By.id("lembagaName")).sendKeys(fieldValue);
+	}
+	public void aksesmasterkp()
+	{
+		webDriver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[1]/div[2]/div/div/div[1]/span")).click();
+		webDriver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[1]/div[2]/div/div/div[1]/div/div[6]/a")).click();
+	}
+	public void fillnamakp(String fieldValue)
+	{
+		webDriver.findElement(By.id("nama")).sendKeys(fieldValue);
+	}
+	public void fillorderkp(String fieldValue)
+	{
+		webDriver.findElement(By.id("orderSeq")).sendKeys(fieldValue);
+	}
+	public void aksesmastersb()
+	{
+		webDriver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[1]/div[2]/div/div/div[1]/span")).click();
+		webDriver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[1]/div[2]/div/div/div[1]/div/div[7]/a")).click();
+	}
+	public void fillnamasb(String fieldValue)
+	{
+		webDriver.findElement(By.id("namaInput")).sendKeys(fieldValue);
+	}
+	public void aksesmastertm()
+	{
+		webDriver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[1]/div[2]/div/div/div[1]/span")).click();
+		webDriver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[1]/div[2]/div/div/div[1]/div/div[8]/a")).click();
+	}
+	public void fillnamatm(String fieldValue)
+	{
+		webDriver.findElement(By.id("namaInput")).sendKeys(fieldValue);
+	}
 
 }

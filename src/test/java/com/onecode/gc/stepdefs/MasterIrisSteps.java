@@ -31,14 +31,14 @@ public class MasterIrisSteps {
     }
 
 
-    @Then("access master entitas pertamina")
+    @Given("access master entitas pertamina")
     public void accessMasterEntitasPertamina() {
         commonPage.aksesmasterep();
     }
 
     @Then("click button add entitas pertamina")
     public void clickButtonAddEntitasPertamina() {
-        commonPage.clickbtnnewep();
+        commonPage.clickbtnnewmaster();
     }
 
     @When("i fill in the column hsh with{string}")
@@ -66,4 +66,163 @@ public class MasterIrisSteps {
         commonPage.clicksubmit();
     }
 
+
+    @Then("check success submit")
+    public void checkSuccessSubmit() {
+        commonPage.assertsuccesssumbit();
+    }
+
+    @Given("access master fungsi")
+    public void accessMasterFungsi() {
+        commonPage.aksesmasterfungsi();
+    }
+
+
+    @Then("click button add fungsi")
+    public void clickButtonAddFungsi() {
+        commonPage.clickbtnnewmaster();
+    }
+
+
+    @When("i fill in the column entitas pertamina with{string}")
+    public void iFillInTheColumnEntitasPertaminaWithBadak(String fieldValue) {
+        commonPage.filldep(fieldValue);
+    }
+
+    @And("choose ep")
+    public void chooseEp() {
+        commonPage.enterep();
+    }
+
+    @And("i fill in the column namafungsi with {string}")
+    public void iFillInTheColumnNamafungsiWithTestinfungsi(String fieldValue) {
+        commonPage.fillnamafungsi(fieldValue);
+    }
+
+
+    @And("i fill in the column deskripsi with {string}")
+    public void iFillInTheColumnDeskripsiWithTesdeskripsi(String fieldValue) {
+        commonPage.filldeskripsi(fieldValue);
+    }
+
+    @Given("access master pic fungsi")
+    public void accessMasterPicFungsi() {
+        commonPage.aksesmasterpf();
+    }
+
+
+    @Then("click button add pic fungsi")
+    public void clickButtonAddPicFungsi() {
+        commonPage.clickbtnnewmaster();
+    }
+
+    @When("i fill in the column dnamafungsi with{string}")
+    public void iFillInTheColumnDnamafungsiWithMarketing(String fieldValue) {
+        commonPage.fillnf(fieldValue);
+    }
+
+    @And("choose nf")
+    public void chooseNf() {
+        commonPage.enternf();
+    }
+
+    @And("i fill in the column namapic with {string}")
+    public void iFillInTheColumnNamapicWithTestingpic(String fieldValue) {
+        commonPage.fillnamapic(fieldValue);
+    }
+
+    @And("i fill in the column notelp with {string}")
+    public void iFillInTheColumnNotelpWith(String fieldValue) {
+        commonPage.fillnotelp(fieldValue);
+    }
+
+    @And("i fill in the column email with {string}")
+    public void iFillInTheColumnEmailWithTestingTesCom(String fieldValue) {
+        commonPage.fillemail(fieldValue);
+    }
+    
+    @Given("access master interest")
+    public void accessMasterInterest() {
+        commonPage.aksesmasterinterest();
+    }
+
+    @Then("click button add interest")
+    public void clickButtonAddInterest() {
+        commonPage.clickbtnnewmaster();
+    }
+
+    @When("i fill in the column nama interest with {string}")
+    public void iFillInTheColumnNamaInterestWithTesInterest(String fieldValue) {
+        commonPage.fillnamainterest(fieldValue);
+    }
+
+    @And("i fill in the column order with {string}")
+    public void iFillInTheColumnOrderWith(String fieldValue) {
+        commonPage.fillorder(fieldValue);
+    }
+
+    @Given("access master kementrianlembaga")
+    public void accessMasterKementrianlembaga() {
+        commonPage.aksesmasterkl();
+    }
+
+    @Then("click button add kementrianlembaga")
+    public void clickButtonAddKementrianlembaga() {
+        commonPage.clickbtnnewmasterkl();
+    }
+
+    @Then("i fill in the column nama kementrianlembaga with {string}")
+    public void iFillInTheColumnNamaKementrianlembagaWithTesInterest(String fieldValue) {
+        commonPage.fillnamakl(fieldValue);
+    }
+
+    @Given("access master kesiapanproyek")
+    public void accessMasterKesiapanproyek() {
+        commonPage.aksesmasterkp();
+    }
+
+    @Then("click button add kesiapanproyek")
+    public void clickButtonAddKesiapanproyek() {
+        commonPage.clickbtnnewmaster();
+    }
+
+    @When("i fill in the column nama kesiapanproyek with {string}")
+    public void iFillInTheColumnNamaKesiapanproyekWithTesKesiapanProyek(String fieldValue) {
+        commonPage.fillnamakp(fieldValue);
+    }
+
+    @And("i fill in the column orderkp with {string}")
+    public void iFillInTheColumnOrderkpWith(String fieldValue) {
+        commonPage.fillorderkp(fieldValue);
+    }
+
+    @Given("access master streambusiness")
+    public void accessMasterStreambusiness() {
+        commonPage.aksesmastersb();
+    }
+
+    @Then("click button add streambusiness")
+    public void clickButtonAddStreambusiness() {
+        commonPage.clickbtnnewmaster();
+    }
+
+    @When("i fill in the column nama streambusiness with {string}")
+    public void iFillInTheColumnNamaStreambusinessWithTesStreamBusiness(String fieldValue) {
+        commonPage.fillnamasb(fieldValue);
+    }
+
+    @Given("access master targetmitra")
+    public void accessMasterTargetmitra() {
+        commonPage.aksesmastertm();
+    }
+
+    @Then("click button add targetmitra")
+    public void clickButtonAddTargetmitra() {
+        commonPage.clickbtnnewmaster();
+    }
+
+    @When("i fill in the column nama targetmitra with {string}")
+    public void iFillInTheColumnNamaTargetmitraWithTesTargetMitra(String fieldValue) {
+        commonPage.fillnamatm(fieldValue);
+    }
 }
